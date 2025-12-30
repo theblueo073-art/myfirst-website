@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DwellSpace - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #001f3f, #003366);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            flex-direction: row-reverse; /* Blue panel on the left */
+        }
+        /* links them */
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .pass{
+            text-decoration: none;
+            color: #004080;
+            margin-left: 200px;
+        }
+        /* Links them */
+
+        /* Left Side - Welcome / Sign Up Panel */
+        .welcome-side {
+            flex: 1;
+            background-color: #004080;
+            color: white;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top-left-radius: 80px;
+            border-bottom-left-radius: 80px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .welcome-side h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-side p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .signup-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ffd700;
+            color: #004080;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            align-self: center;
+            transition: transform 0.3s;
+        }
+
+        .signup-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Right Side - Login Form */
+        .form-side {
+            flex: 1;
+            padding: 50px 40px;
+            background: white;
+        }
+
+        .form-side h2 {
+            font-size: 2rem;
+            color: #004080;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #004080;
+            box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #003060;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin: 15px 0;
+        }
+
+        .forgot-password a {
+            color: #004080;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .social-text {
+            text-align: center;
+            margin: 25px 0 15px;
+            color: #666;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .social-btn:hover {
+            border-color: #004080;
+            background-color: #f0f8ff;
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .welcome-side {
+                border-top-left-radius: 60px;
+                border-top-right-radius: 60px;
+                border-bottom-left-radius: 0;
+                padding: 40px 30px;
+                text-align: center;
+            }
+
+            .signup-btn {
+                align-self: center;
+            }
+
+            .form-side {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-side h2 {
+                font-size: 1.7rem;
+            }
+
+            .welcome-side h1 {
+                font-size: 2rem;
+            }
+        }
+        /* Password area */
+        .password-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.password-group input {
+    width: 100%;
+    padding: 14px 50px 14px 14px; /* Space for icon */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.eye-toggle {
+    position: absolute;
+    top: 58%; /* Adjust if label height changes */
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+}
+
+.eye-toggle svg {
+    width: 100%;
+    height: 100%;
+    fill: #666;
+    transition: fill 0.3s;
+}
+
+.eye-toggle:hover svg {
+    fill: #004080;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Welcome / Create Account Side (Blue Panel on Left) -->
+        <div class="welcome-side">
+            <h1>Create an Account</h1>
+            <p>New to DwellSpace? Join us today!</p>
+            <a href="Sign-up.html" class="signup-btn">Sign Up</a>
+        </div>
+
+        <!-- Login Form Side -->
+        <div class="form-side">
+            <h2>Login</h2>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="password-group">
+    <label for="password">Password</label> <!-- Change id for login if needed -->
+    <input type="password" id="password" placeholder="Enter password" required>
+    <div class="eye-toggle" onclick="togglePassword('password', this)">
+        <!-- Open Eye (visible by default) -->
+        <svg class="eye-open" viewBox="0 0 24 24">
+            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+        </svg>
+        <!-- Closed Eye with Slash (hidden by default) -->
+        <svg class="eye-closed" viewBox="0 0 24 24" style="display:none;">
+            <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03 .65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+        </svg>
+    </div>
+</div>
+                <button type="submit" class="login-btn"><a href="dashboard.html">Login</a></button>
+            </form>
+            <a class="pass" href="forgottenpassword.html">Forgotten Password ?</a>
+
+            <p class="social-text">or login with social platforms</p>
+            <div class="social-buttons">
+                <div class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" alt="Google"></div>
+                <div class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" alt="Facebook"></div>
+                <div class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub"></div>
+                <div class="social-btn"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn"></div>
+            </div>
+        </div>
+    </div>
+     <a href="https://wa.me/+2348109508319" target="_blank" aria-label="WhatsApp" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.669.15c-.198.297-.768.966-.941 1.164c-.173.198-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.297-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.626c.712.226 1.36.194 1.872.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297C11.49.001 2.004 9.487.001 18.997l-.001.002c-.003.004-.003.008-.003.012v.001l.001.001c0 .004.001.008.001.012l.001.001c.004.004.008.008.012.012l.001.001c.004 0 .008.001.012.001h.001c.004 0 .008.001.012.001h.001c9.52 0 17.23-7.71 17.23-17.23c0-4.585-1.794-8.883-5.055-12.1c-3.261-3.217-7.538-5.053-12.099-5.053"/>
+                </svg>
+  </a>
+<script>
+    function togglePassword(id, toggleElement) {
+        const input = document.getElementById(id);
+        const openEye = toggleElement.querySelector('.eye-open');
+        const closedEye = toggleElement.querySelector('.eye-closed');
+
+        if (input.type === "password") {
+            input.type = "text";
+            openEye.style.display = "none";
+            closedEye.style.display = "block";
+        } else {
+            input.type = "password";
+            openEye.style.display = "block";
+            closedEye.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>

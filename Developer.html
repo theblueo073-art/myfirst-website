@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer | Portfolio</title>
+    <link rel="shortcut icon" href="./image.jpg.jpg" type="image/x-icon">
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+            text-align: center;
+            line-height: 1.6;
+        }
+        header{
+            max-width: 900px;
+        }
+        h1{
+            font-size: 4rem;
+            margin-bottom: 12px;
+            color: #ffffff;
+            letter-spacing: -1px;
+        }
+        .subtitle{
+            font-size: 1.6rem;
+            margin-bottom: 50px;
+            color: #94a3b8;
+        }
+        .profile-img{
+            width: 280px;
+            height: 290px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid #1e293b;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        .portfolio-section{
+            max-width: 800px;
+            text-align: left;
+        }
+        .portfolio-section h2{
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .skills-intro{
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #cbd5e1;
+        }
+        ul{
+            list-style: none;
+            padding: 0;
+            font-size: 1.25rem;
+        }
+        li{
+            margin-bottom: 20px;
+            padding-left: 35px;
+            position: relative;
+            left: 0;
+            top: -2px;
+        }
+        li::before{
+            content: "•";
+            color: #60a5fa;
+            position: absolute;
+            left: 0;
+        }
+        footer{
+            margin-top: 60px;
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+        /* Responsive — Tablet and Up*/
+        @media (min-width: 768px) {
+            body{
+                padding: 60px 20px;
+            }
+            h1{
+                font-size: 4rem;
+            }
+            .profile-img{
+                width: 280px;
+                height: 280px;
+            }
+            .subtitle{
+                font-size: 1.6rem;
+            }
+            h2{
+                font-size: 3rem;
+            }
+            .social-links{
+                gap: 30px;
+            }
+            .social-links svg{
+                width: 35px;
+                height: 35px;
+            }
+            .portfolio-section{
+                padding: 50px;
+            }
+        }
+        /* Desktop — add box shadow */
+        @media (min-width: 769px){
+            .portfolio-section{
+                background-color: #1e293b;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+                padding: 50px;
+                border-radius: 11px;
+            }
+        }
+        /* Extra small phones */
+        @media (max-width: 480px){
+            h1{
+                font-size: 2.4rem;
+            }
+            .profile-img{
+                width: 180px;
+                height: 180px;
+            }
+            .social-links{
+                gap: 30px;
+            }
+            .social-links svg{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        /* Other smaller phones */
+         @media (min-width: 480px){
+            h1{
+                font-size: 2.4rem;
+            }
+            .profile-img{
+                width: 180px;
+                height: 180px;
+            }
+            .social-links{
+                gap: 30px;
+            }
+            .social-links svg{
+                width: 35px;
+                height: 35px;
+            }
+        }
+        /* Contact Section */
+        .contact-form{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        input, textarea{
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #1e293b;
+            color: #e2e8f0;
+            font-size: 1rem;
+        }
+        input:focus, textarea:focus{
+            outline: 2px solid #60a5fa;
+        }
+        textarea{
+            min-height: 150px;
+            resize: vertical;
+        }
+        button{
+            padding: 15px;
+            background-color: #60a5fa;
+            color: #0f172a;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover{
+            background-color: #3b82f6;
+        }
+        /* Social Icons */
+        .social-links{
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        .social-links a{
+            transition: transform 0.3s;
+        }
+        .social-links a:hover{
+            transform: translateY(-5px);
+        }
+        .social-links svg{
+            width: 40px;
+            height: 40px;
+            fill: #94a3b8;
+            transition: fill 0.3s;
+        }
+        .social-links a:hover svg{
+            fill: #60a5fa;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn{
+            from{
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to{
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero elements */
+        header {
+            opacity: 2;
+            animation: fadaIn 1s ease forwards;
+        }
+        header h1 { animation-delay: 0.9s;}
+        .subtitle { animation-delay: 0.6s;}
+
+        .profile-img{
+          opacity: 3;
+          animation: fadaIn 3s ease forwards;
+          animation-delay: 0.9s;   
+        }
+        
+       
+        /*Social icons hover */
+
+        .social-links a:hover{
+            transform: translateY(-8px);
+            transition: transform 0.3s ease;
+        }
+         .profile-img:hover{
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        /* Contact section - scroll fade */
+       
+        .contact-section{
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .contact-section.animated{
+            opacity: 1;
+            transform: translateY(0);
+        }    
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lee</h1>
+        <p class="subtitle">Frontend Web Developer — many years of coding experience building responsive websites and interfaces.</p>
+        <img src="./Screenshot_20251229-143952_1.png" alt="" class="profile-img">
+    </header>
+
+    <section class="portfolio-section">
+        <h2>Portfolio</h2>
+        <p class="skills-intro">I specialize in building pixel-perfect, responsive interfaces with a strong focus on user experience and performance, accessibility and delightful interactions.
+        </p>
+        <ul>
+            <li>Clean and maintainable HTML & semantic markup</li>
+            <li>Advanced CSS architecture (BEM, utility-first, custom properties)</li>
+            <li>Fully responsive and mobile-first design</li>
+            <li>Accessibility-first design</li>
+            <li>Performance optimization & modern tooling</li>
+            <li>interactive animations and micro-interactions</li>
+        </ul>
+    </section>
+<section class="contact-section">
+        <h2>Get in Touch</h2>
+        <p class="skills-intro">I'm always open to discussing new projects, opportunities, or collaborations. Feel free to reach out!</p>
+        
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="social-links">
+            <!-- Instagram -->
+            <a href="https://instagram.com/blue_pipstech" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+            
+            <!-- X (Twitter) -->
+            <a href="https://x.com/Fx2Lee" target="_blank" aria-label="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+            </a>
+            
+            <!-- Discord -->
+            <a href="https://discord.com/users/rancho_17_16657" target="_blank" aria-label="Discord">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.010c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.33 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="https://wa.me/+2348109508319" target="_blank" aria-label="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.669.15c-.198.297-.768.966-.941 1.164c-.173.198-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.297-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.626c.712.226 1.36.194 1.872.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297C11.49.001 2.004 9.487.001 18.997l-.001.002c-.003.004-.003.008-.003.012v.001l.001.001c0 .004.001.008.001.012l.001.001c.004.004.008.008.012.012l.001.001c.004 0 .008.001.012.001h.001c.004 0 .008.001.012.001h.001c9.52 0 17.23-7.71 17.23-17.23c0-4.585-1.794-8.883-5.055-12.1c-3.261-3.217-7.538-5.053-12.099-5.053"/>
+                </svg>
+            </a>
+
+            <a href="mailto:theblueo073@gmail.com" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/></svg>
+            </a>
+        </div>
+    </section>
+            
+       
+    <footer>
+        &copy; 2026 Lee. All rights reserved.
+    </footer>
+    <script>
+        // Simple scroll observer for contact section  
+        const contactSection = document.querySelector('.contact-section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target); // Run once
+                    }
+                    });
+                    }, { threshold: 0.1 });
+
+                    
+                        observer.observe(contactSection);
+                    
+    </script>
+</body>
+</html>

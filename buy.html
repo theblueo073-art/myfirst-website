@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DwellSpace - Buy Properties in Nigeria</title>
+    <link rel="stylesheet" href="DwellSpace.css"> <!-- Reuse your main CSS -->
+    <style>
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f9f9f9; }
+
+        /* Hero Section */
+        .buy-hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background: linear-gradient(to bottom, #e6f0ff, #f9f9f9);
+        }
+
+        .buy-hero h1 {
+            font-size: 2.8rem;
+            color: #004080;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .buy-hero p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        /* Filters */
+        .filters {
+            max-width: 1200px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .filters select,
+        .filters input {
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 240px;
+            background: white;
+        }
+
+        .filters button {
+            padding: 14px 40px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .filters button:hover {
+            background-color: #003060;
+        }
+
+        /* Properties Grid */
+        .properties-grid {
+            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 20px;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .property-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 24px;
+        }
+
+        .property-info h3 {
+            font-size: 1.5rem;
+            color: #004080;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .price {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #004080;
+            margin-bottom: 12px;
+        }
+
+        .location {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .view-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.05rem;
+            transition: background-color 0.3s;
+        }
+
+        .view-btn:hover {
+            background-color: #003060;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+
+        /* Tablet (768px and below) */
+        @media (max-width: 768px) {
+            .buy-hero {
+                padding: 70px 20px 40px;
+            }
+
+            .buy-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .buy-hero p {
+                font-size: 1.05rem;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filters select,
+            .filters input,
+            .filters button {
+                min-width: 100%;
+                width: 100%;
+            }
+
+            .properties-grid {
+                display: grid;
+                height: 50% ;
+                padding-left: 70px;
+                gap: 30px;
+            }
+
+            .property-img {
+                height: 220px;
+            }
+
+            .property-info {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .property-info h3 {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+
+            .price {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+            .location{
+                text-align: center;
+            }
+            .features{
+                text-align: center;
+            }
+        }
+
+        /* Small Phones (480px and below) */
+        @media (max-width: 480px) {
+            .buy-hero {
+                padding: 60px 15px 30px;
+            }
+
+            .buy-hero h1 {
+                font-size: 2rem;
+            }
+
+            .buy-hero p {
+                font-size: 1rem;
+            }
+
+            .filters {
+                padding: 0 15px;
+                gap: 10px;
+            }
+
+            .filters select,
+            .filters input {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+
+            .filters button {
+                padding: 12px;
+                font-size: 1rem;
+            }
+
+            .properties-grid {
+                height: 50% ;
+                padding-left: 110px;
+                gap: 25px;
+            }
+
+            .property-img {
+                height: 200px;
+            }
+
+            .property-info {
+                padding: 18px;
+            }
+
+            .property-info h3 {
+                font-size: 1.3rem;
+                text-align: center;
+            }
+
+            .price {
+                font-size: 1.4rem;
+                 text-align: center;
+            }
+
+            .location{
+                text-align: center;
+            }
+
+            .features {
+                font-size: 0.9rem;
+                gap: 12px;
+                text-align: center;
+            }
+
+            .view-btn {
+                padding: 12px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Large Desktop (1200px+) */
+        @media (min-width: 1200px) {
+            .buy-hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .buy-hero p {
+                font-size: 1.4rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Your existing header -->
+    <header>
+        <div class="logo">DwellSpace</div>
+        <nav>
+            <ul>
+                <li><a href="buy.html">Buy</a></li>
+                <li><a href="sell.html">Sell</a></li>
+                <li><a href="Developer.html">Developer</a></li>
+                <li><a href="rent.html">Rent</a></li>
+                <li><a href="agents.html">Agents</a></li>
+                <li><a href="Sign-up.html">Sign Up</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Buy Hero -->
+    <section class="buy-hero">
+        <h1>Buy Properties in Nigeria</h1>
+        <p>Discover your dream home from our curated collection of properties for sale across Lagos, Abuja, Port Harcourt, and more.</p>
+    </section>
+
+    <!-- Filters -->
+    <div class="filters">
+        <select>
+            <option>Location</option>
+            <option>Lagos</option>
+            <option>Abuja</option>
+            <option>Port Harcourt</option>
+            <option>Ibadan</option>
+        </select>
+        <select>
+            <option>Price Range</option>
+            <option>Under $35K</option>
+            <option>$35K - $70K</option>
+            <option>$70K - $100K</option>
+            <option>Over $100K</option>
+        </select>
+        <select>
+            <option>Bedrooms</option>
+            <option>Mansions</option>
+            <option>Duplex</option>
+            <option>3 Bedrooms</option>
+            <option>4+ Bedrooms</option>
+        </select>
+        <button>Apply Filters</button>
+    </div>
+
+    <!-- Properties Grid -->
+    <div class="properties-grid">
+        <!-- Property 1 -->
+        <div class="property-card">
+            <img src="./800k mansion.png" alt="Property" class="property-img">
+            <div class="property-info">
+                <h3>7 Bedroom Luxury mansion</h3>
+                <div class="price">$550,000</div>
+                <div class="location">Guzape, Abuja</div>
+                <div class="features">
+                    <span>5 Beds, 6 Baths & 600 sqm</span>
+                </div>
+                <a href="property-details.html" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="property-card">
+            <img src="./650k duplex.png" alt="Property" class="property-img">
+            <div class="property-info">
+                <h3>5 Bedroom Duplex</h3>
+                <div class="price">$150,000</div>
+                <div class="location">Ikoyi, Lagos</div>
+                <div class="features">
+                    <span>3 Beds, 4 Baths & 250 sqm</span>
+                </div>
+                <a href="property-details.html2" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="property-card">
+            <img src="./land c of o.png" alt="Property" class="property-img">
+            <div class="property-info">
+                <h3>Prime Residential Land</h3>
+                <div class="price">$80,000</div>
+                <div class="location">Lekki Phase 1, Lagos</div>
+                <div class="features">
+                    <span>1000 sqm & C of O</span>
+                </div>
+                <a href="property-details.html3" class="view-btn">View Details</a>
+            </div>
+        </div>
+
+        <!-- Property 4 -->
+        <div class="property-card">
+            <img src="./land c of o2.png" alt="Property" class="property-img">
+            <div class="property-info">
+                <h3>Prime Residential Land</h3>
+                <div class="price">$50,000</div>
+                <div class="location">Lekki Phase 1, Lagos</div>
+                <div class="features">
+                    <span>700 sqm & C of O</span>
+                </div>
+                <a href="property-details.html4" class="view-btn">View Details</a>
+            </div>
+        </div>
+        <!-- Add more properties here -->
+    </div>
+<footer style="background: #004080; color: white; padding: 30px 20px; text-align: center; ">
+    <p>&copy; 2025 DwellSpace. All rights reserved.</p>
+    </div>
+</footer>
+ <a href="https://wa.me/+2348109508319" target="_blank" aria-label="WhatsApp" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.669.15c-.198.297-.768.966-.941 1.164c-.173.198-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.297-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.626c.712.226 1.36.194 1.872.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297C11.49.001 2.004 9.487.001 18.997l-.001.002c-.003.004-.003.008-.003.012v.001l.001.001c0 .004.001.008.001.012l.001.001c.004.004.008.008.012.012l.001.001c.004 0 .008.001.012.001h.001c.004 0 .008.001.012.001h.001c9.52 0 17.23-7.71 17.23-17.23c0-4.585-1.794-8.883-5.055-12.1c-3.261-3.217-7.538-5.053-12.099-5.053"/>
+                </svg>
+  </a>
+    <!-- Hamburger script -->
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

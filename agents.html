@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DwellSpace - Find Trusted Agents</title>
+    <link rel="stylesheet" href="DwellSpace.css"> <!-- Reuse your main CSS -->
+    <style>
+        
+        /* Agents Page Specific Styles */
+        .agents-hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            background: linear-gradient(to bottom, #e6f0ff, #f9f9f9);
+        }
+
+        .agents-hero h1 {
+            font-size: 3rem;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+
+        .agents-hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+
+        .agent-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .agent-photo {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .agent-info {
+            padding: 25px;
+        }
+
+        .agent-info h3 {
+            font-size: 1.6rem;
+            color: #004080;
+            margin-bottom: 8px;
+        }
+
+        .agent-info .role {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .agent-info .location {
+            color: #004080;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .agent-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .agent-contact a {
+            color: #555;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .agent-contact a:hover {
+            color: #004080;
+        }
+
+        .contact-btn {
+            padding: 12px 30px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #003060;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .agents-hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .agents-hero p {
+                font-size: 1.1rem;
+            }
+
+            .agent-photo {
+                height: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Reuse your existing header -->
+    <header>
+        <div class="logo">DwellSpace</div>
+        <nav>
+            <ul>
+                <li><a href="DwellSpace.html">Buy</a></li>
+                <li><a href="#">Sell</a></li>
+                <li><a href="Developer.html">Developer</a></li>
+                <li><a href="#">Rent</a></li>
+                <li><a href="agents.html">Agents</a></li>
+                <li><a href="Sign-up.html">Sign Up</a></li>
+            </ul>
+            <button class="hamburger" aria-label="Menu">☰</button>
+        </nav>
+    </header>
+
+    <!-- Agents Hero -->
+    <section class="agents-hero">
+        <h1>Find Trusted Agents</h1>
+        <p>Connect with experienced real estate professionals across Nigeria to help you buy, sell, or rent your perfect property.</p>
+    </section>
+
+    <!-- Agents Grid -->
+    <div class="agents-grid">
+        <!-- Agent Card 1 -->
+        <div class="agent-card">
+            <img src="./chineduscrshot.png" alt="Agent" class="agent-photo">
+            <div class="agent-info">
+                <h3>Chinedu Okonkwo</h3>
+                <p class="role">Senior Property Consultant</p>
+                <p class="location">Lagos, Nigeria</p>
+                <div class="agent-contact">
+                    <a href="tel:+2349131314975">+234 913 131 4975</a>
+                    <a href="mailto:chinedu@dwellspace.com">chinedu@dwellspace.com</a>
+                </div>
+                <button class="contact-btn">Contact Agent</button>
+            </div>
+        </div>
+
+        <!-- Agent Card 2 -->
+        <div class="agent-card">
+            <img src="./aminatscrshot.png" alt="Agent" class="agent-photo">
+            <div class="agent-info">
+                <h3>Aminat Yusuf</h3>
+                <p class="role">Luxury Property Specialist</p>
+                <p class="location">Abuja, Nigeria</p>
+                <div class="agent-contact">
+                    <a href="tel:+2349157709591">+234 9157709591</a>
+                    <a href="mailto:aminat@dwellspace.com">aminat@dwellspace.com</a>
+                </div>
+                <button class="contact-btn">Contact Agent</button>
+            </div>
+        </div>
+
+        <!-- Agent Card 3 -->
+        <div class="agent-card">
+            <img src="./emekascrshot.png" alt="Agent" class="agent-photo">
+            <div class="agent-info">
+                <h3>Emeka Nwosu</h3>
+                <p class="role">Rental & Commercial Expert</p>
+                <p class="location">Port Harcourt, Nigeria</p>
+                <div class="agent-contact">
+                    <a href="tel:+2348141930084">+234 814 193 0084</a>
+                    <a href="mailto:emeka@dwellspace.com">emeka@dwellspace.com</a>
+                </div>
+                <button class="contact-btn">Contact Agent</button>
+            </div>
+        </div>
+
+        <!-- Add more agents as needed -->
+    </div>
+<footer style="background: #004080; color: white; padding: 30px 20px; text-align: center; ">
+    <p>&copy; 2025 DwellSpace. All rights reserved.</p>
+    </div>
+</footer>
+ <a href="https://wa.me/+2348109508319" target="_blank" aria-label="WhatsApp" style="position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 1000;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967c-.273-.099-.471-.148-.669.15c-.198.297-.768.966-.941 1.164c-.173.198-.347.223-.644.075c-.297-.15-1.255-.463-2.39-1.475c-.883-.788-1.48-1.761-1.653-2.059c-.173-.297-.018-.458.13-.606c.134-.133.298-.347.446-.52c.149-.174.198-.298.297-.497c.099-.198.05-.371-.025-.52c-.075-.149-.669-1.612-.916-2.207c-.242-.579-.487-.5-.669-.51c-.173-.008-.371-.01-.57-.01c-.198 0-.52.074-.792.372c-.272.297-1.04 1.016-1.04 2.479c0 1.462 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487c.709.306 1.262.489 1.694.626c.712.226 1.36.194 1.872.118c.571-.085 1.758-.719 2.006-1.413c.248-.694.248-1.289.173-1.413c-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214l-3.741.982l.998-3.648l-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297C11.49.001 2.004 9.487.001 18.997l-.001.002c-.003.004-.003.008-.003.012v.001l.001.001c0 .004.001.008.001.012l.001.001c.004.004.008.008.012.012l.001.001c.004 0 .008.001.012.001h.001c.004 0 .008.001.012.001h.001c9.52 0 17.23-7.71 17.23-17.23c0-4.585-1.794-8.883-5.055-12.1c-3.261-3.217-7.538-5.053-12.099-5.053"/>
+                </svg>
+  </a>
+    <!-- Your existing JavaScript for hamburger -->
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
